@@ -1,0 +1,13 @@
+Package: fractus
+Version: 0.5-1
+Date: 2017-05-15
+Title: Fractal Generation Tool
+Authors@R: c(person("Brandon", "Monier", role = c("aut", "cre"),
+                     email = "brandon.monier@sdstate.edu")
+Maintainer: Brandon Monier <brandon.monier@sdstate.edu>
+Description: A simple fractal generator using the algorithm described by 
+	Barnsely (1988).
+License: GPL (>= 2)	
+Depends: R (>= 3.1.0)
+Imports: data.table, utils
+URL: https://github.com/btmonier/fractus
