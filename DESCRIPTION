@@ -3,7 +3,7 @@ Version: 0.5-1
 Date: 2017-05-15
 Title: Fractal Generation Tool
 Authors@R: c(person("Brandon", "Monier", role = c("aut", "cre"),
-                     email = "brandon.monier@sdstate.edu")
+                     email = "brandon.monier@sdstate.edu"))
 Maintainer: Brandon Monier <brandon.monier@sdstate.edu>
 Description: A simple fractal generator using the algorithm described by 
 	Barnsely (1988).
