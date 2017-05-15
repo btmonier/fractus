@@ -95,23 +95,33 @@
 }
 
 
-.dice.tern <- function() 
+.dice.five <- function() 
 {
-  alpha <- c(0, 0)
-  beta  <- c(0.5, sqrt(3)/2)
-  gamma <- c(1, 0)
+  a <- c(0.5, 0)
+  b <- c(1.5, 0)
+  c <- c(1.8122, 0.951)
+  d <- c(1, 1.539)
+  e <- c(0.1878, 0.951)
   
-  tmp <- sample(1:3, 1)
+  tmp <- sample(1:5, 1)
   
   if(tmp == 1) {
-    return(data.frame(x = alpha[1], y = alpha[2]))
+    return(data.frame(x = a[1], y = a[2]))
   } 
   
   if(tmp == 2) {
-    return(data.frame(x = beta[1], y = beta[2]))
+    return(data.frame(x = b[1], y = b[2]))
   }
   
   if(tmp == 3) {
-    return(data.frame(x = gamma[1], y = gamma[2]))
+    return(data.frame(x = c[1], y = c[2]))
+  }
+  
+  if(tmp == 4) {
+    return(data.frame(x = d[1], y = d[2]))
+  }
+  
+  if(tmp == 5) {
+    return(data.frame(x = e[1], y = e[2]))
   }
 }
