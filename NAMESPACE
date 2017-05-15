@@ -9,3 +9,4 @@ importFrom(utils, setTxtProgressBar)
 
 # Export functions for users
 export(fractus)
+export(fractus-helper)
