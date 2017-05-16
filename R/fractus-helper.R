@@ -5,11 +5,11 @@
 #-----------------------------------------------------#
 
 ## Return data frame
-.chaos.df <- function(n, r, shape) 
+.chaos.df <- function(n, r, shape, c.vert = TRUE) 
 {
   message('Generating index...')
   
-  pb <- utils::txtProgressBar(min = 0, max = n, style = 3, width = 40)
+  
   s <- c(0.5, 0)
   
   ls1 <- list() 
@@ -25,13 +25,24 @@
     }
   }
   
+  tmp <- data.table::rbindlist(ls1)
+  
+  if (isTRUE(c.vert)) {
+    tmp <- tmp
+  }
+  else {
+    tmp <- tmp[with(tmp, c(TRUE, diff(as.numeric(interaction(x, y))) != 0)), ]
+  }
+  
+  pb <- utils::txtProgressBar(min = 0, max = nrow(tmp), style = 3, width = 40)
+  
   ls2 <- list()
-  for (i in 2:n) {
-    ls2[[1]] <- data.frame(x = r * sum(c(s[[1]], ls1[[1]][1, 1])), 
-                           y = r * sum(c(s[[2]], ls1[[1]][1, 2])))
+  for (i in 2:nrow(tmp)) {
+    ls2[[1]] <- data.frame(x = r * sum(c(s[[1]], tmp[1][[1, 1]])), 
+                           y = r * sum(c(s[[2]], tmp[1][[1, 2]])))
     
-    ls2[[i]] <- data.frame(x = r * sum(c(ls1[[i]][1, 1], ls2[[i - 1]][1, 1])),
-                           y = r * sum(c(ls1[[i]][1, 2], ls2[[i - 1]][1, 2])))
+    ls2[[i]] <- data.frame(x = r * sum(c(tmp[i][[1, 1]], ls2[[i - 1]][1, 1])),
+                           y = r * sum(c(tmp[i][[1, 2]], ls2[[i - 1]][1, 2])))
     utils::setTxtProgressBar(pb, i)
   }
   
