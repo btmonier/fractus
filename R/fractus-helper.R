@@ -136,8 +136,3 @@
     return(data.frame(x = e[1], y = e[2]))
   }
 }
-
-.dice.six <- function()
-{
-  print('Hello world!')
-}
