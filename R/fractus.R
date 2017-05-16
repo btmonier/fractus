@@ -4,7 +4,7 @@
 # Date:   05.15.17                                    #
 #-----------------------------------------------------#
 
-fractus <- function(n, r, shape, point = NULL, title = TRUE) 
+fractus <- function(n, r, shape, point = NULL, c.vert = TRUE, title = TRUE) 
 {
   if(is.null(point)) {
     point = 0.5

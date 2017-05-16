@@ -19,13 +19,18 @@ fractus(n, r, shape, point, title = TRUE)
     the next point in the sequence is placed.}
   \item{shape}{Defines the polygon shape (triangle, square, or pentagon).}
   \item{point}{Size of the points placed on the graph.}
+  \item{c.vert}{Allows or prevents consecutive vertices in sequence to be 
+    plotted. Defaults to \code{TRUE}.}
   \item{title}{Add descriptive title to graph. Defaults to \code{TRUE}.}
 }
 
 \author{Brandon Monier, \email{brandon.monier@sdstate.edu} }
 
 \examples{
-  \code{fractus(15000, 0.5, "triangle", point = 0.5, title = TRUE)}
+  \code{
+    fractus(15000, 0.5, "triangle", point = 0.5, c.vert = TRUE,
+            title = TRUE)
+  }
 }
 
 \references{
