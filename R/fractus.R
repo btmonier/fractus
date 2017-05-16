@@ -17,7 +17,7 @@ fractus <- function(n, r, shape, point = NULL, c.vert = TRUE, title = TRUE)
     m.label <- NULL
   }
   
-  graphics::plot(.chaos.df(n, r, shape, title), bty = 'n', xaxt = 'n', 
+  graphics::plot(.chaos.df(n, r, shape, c.vert), bty = 'n', xaxt = 'n', 
                  yaxt = 'n', pch = 16, xlab = '', ylab = '', cex = point, 
                  main = m.label)
 }
