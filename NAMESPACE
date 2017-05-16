@@ -1,6 +1,7 @@
 # Import package dependencies
 importFrom(data.table, rbindlist)
 
+importFrom(graphics, par)
 importFrom(graphics, plot)
 
 importFrom(utils, txtProgressBar)
