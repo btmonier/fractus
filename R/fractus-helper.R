@@ -1,12 +1,12 @@
-#-----------------------------------------------------#
-# Title:  fractus.R - helper functions                #
-# Author: Brandon Monier (brandon.monier@sdstate.edu) #
-# Date:   05.15.17                                    #
-#-----------------------------------------------------#
+#------------------------------------------------------------------------------
+# Title:         fractus.R - Helper Functions                                  
+# Author:        Brandon Monier (brandon.monier@sdstate.edu) 
+# Created:       2017-05-15 00:00:01 CDT 
+# Last Modified: 2018-05-21 19:49:51 CDT                                
+#------------------------------------------------------------------------------
 
 ## Return data frame
-.chaos.df <- function(n, r, shape, c.vert = TRUE) 
-{
+.chaos.df <- function(n, r, shape, c.vert = TRUE) {
   message('Generating index...')
   
   
@@ -31,18 +31,29 @@
     tmp <- tmp
   }
   else {
-    tmp <- tmp[with(tmp, c(TRUE, diff(as.numeric(interaction(x, y))) != 0)), ]
+    tmp <- tmp[with(
+      tmp, c(TRUE, diff(as.numeric(interaction(x, y))) != 0)
+    ), ]
   }
   
-  pb <- utils::txtProgressBar(min = 0, max = nrow(tmp), style = 3, width = 40)
+  pb <- utils::txtProgressBar(
+    min = 0, 
+    max = nrow(tmp), 
+    style = 3, 
+    width = 40
+  )
   
   ls2 <- list()
   for (i in 2:nrow(tmp)) {
-    ls2[[1]] <- data.frame(x = r * sum(c(s[[1]], tmp[1][[1, 1]])), 
-                           y = r * sum(c(s[[2]], tmp[1][[1, 2]])))
+    ls2[[1]] <- data.frame(
+      x = r * sum(c(s[[1]], tmp[1][[1, 1]])), 
+      y = r * sum(c(s[[2]], tmp[1][[1, 2]]))
+    )
     
-    ls2[[i]] <- data.frame(x = r * sum(c(tmp[i][[1, 1]], ls2[[i - 1]][1, 1])),
-                           y = r * sum(c(tmp[i][[1, 2]], ls2[[i - 1]][1, 2])))
+    ls2[[i]] <- data.frame(
+      x = r * sum(c(tmp[i][[1, 1]], ls2[[i - 1]][1, 1])),
+      y = r * sum(c(tmp[i][[1, 2]], ls2[[i - 1]][1, 2]))
+    )
     utils::setTxtProgressBar(pb, i)
   }
   
